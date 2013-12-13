@@ -1,9 +1,9 @@
 == README
 
-New website for zuul! 
+New website for zuul.
+Authors: Slim, Enigma, BIGhong 
 
 - Ruby Version 2.0.0
 - See GemFile for dependencies
-
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
