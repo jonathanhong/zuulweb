@@ -1,6 +1,9 @@
 == README
 
-New website for zuul.
+New website for zuul. The goal is to create a touch friendly, hassle-free purchasing site. The hassle free approach resulted in implementing an honor system for purchases/deposits which works due to our current system. Logins were deemed too inconvinient. Possible IRC bot in the future.
+
+The public end will track inventory, tabs, balances, and allow purchases/deposits.
+The admin end will get statistics, add inventory, change prices, etc.
 Authors: Slim, Enigma, BIGhong 
 
 - Ruby Version 2.0.0
