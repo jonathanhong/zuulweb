@@ -1,10 +1,10 @@
 Zuul::Application.routes.draw do
-  get "git/deploy"
+  get "shop/index"
+  post "git/deploy", to: 'git#deploy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'shop#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
