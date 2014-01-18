@@ -26,6 +26,16 @@ class GitController < ApplicationController
     end
   end
 
+  def branches
+    begin
+      g = Git.open('/home/combscat/public_html/zuul')
+      @branches = g.branches
+    rescue Exception
+      @branches = []
+      #TODO: Error log?
+    end
+  end
+
   def checkout
     begin
       g = Git.open('/home/combscat/public_html/zuul')
