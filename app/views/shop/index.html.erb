@@ -1,3 +1,8 @@
 <h1>Shop#index</h1>
 <p>There are <%= @user_count %> users.</p>
 <p>There are <%= @item_count %> items.</p>
+<ul>
+<% @items.each do |item| %>
+    <li><h3><%= "#{item.name} @ $#{item.price} ea. (#{item.quantity} in stock)" %></h3>
+<% end %>
+</ul>
