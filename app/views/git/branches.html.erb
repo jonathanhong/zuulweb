@@ -1,0 +1,10 @@
+<h1>Zuulweb Git Branches</h1>
+<% @branches.each do |branch| %>
+  <h3><%= "#{branch.name}  (#{branch.full})" %> <span style="font-size: 75%">
+      <% if branch.current %>
+        Current
+      <% else %>
+        <a href="/git/checkout/<%= branch.name %>">Checkout</a>
+      <% end %>
+  </span></h3>
+<% end %>

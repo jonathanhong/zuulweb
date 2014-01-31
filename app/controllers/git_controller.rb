@@ -25,4 +25,35 @@ class GitController < ApplicationController
       #TODO: Error log?
     end
   end
+
+  def branches
+    begin
+      g = Git.open('/home/combscat/public_html/zuul')
+      @branches = g.branches
+    rescue Exception
+      @branches = []
+      #TODO: Error log?
+    end
+  end
+
+  def checkout
+    begin
+      g = Git.open('/home/combscat/public_html/zuul')
+      exists = false
+      g.branches.each do |branch|
+        if branch.name == params[:branch]
+          exists = true
+          break
+        end
+      end 
+      g.checkout params[:branch] if exists
+      FileUtils.touch('/home/combscat/public_html/zuul/tmp/restart.txt') if exists
+      @success = exists
+      @message = exists ? "Successfuly checked out branch '#{params[:branch]}'." : "Branch '#{params[:branch]}' was not found."
+    rescue Exception => e
+      @success = false
+      @message = e.message
+      #TODO: Error log? (e.backtrace.inspect)
+    end
+  end
 end
