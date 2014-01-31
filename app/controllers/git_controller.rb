@@ -14,7 +14,8 @@ class GitController < ApplicationController
       #Ensure this is a GitHub post thing
       repo = github_json['repository']
       if repo['private'] == true and repo['name'] == 'zuulweb' and repo['language'] == 'Ruby'
-        `for remote in `git branch -r`; do git branch --track $remote; done`
+        cmd = 'for remote in `git branch -r`; do git branch --track $remote; done'
+        `#{cmd}`
         #`git fetch --all`
         `git pull --all`
         FileUtils.touch('/home/combscat/public_html/zuul/tmp/restart.txt')
