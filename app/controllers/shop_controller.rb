@@ -1,5 +1,6 @@
 class ShopController < ApplicationController
   def index
+    @users = User.all.order("username ASC")
     @user_count = User.count
     @items = Item.where(active: true)
     @item_count = @items.size
