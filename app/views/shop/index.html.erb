@@ -1,9 +1,19 @@
 <h1>Shop#index</h1>
 <p>There are <%= @user_count %> users.</p>
+<select name="userid">
+  <% @users.each do |user| %>
+    <option value="<%= user.id %>"><%= user.username %></option>
+  <% end %>
+</select>
 <p>There are <%= @item_count %> items.</p>
 <h2>Items</h2>
-<ul>
+<div class="list-group">
 <% @items.each do |item| %>
-    <li><h3><%= "#{item.name} @ $#{item.price} ea. (#{item.quantity} in stock)" %></h3></li>
+  <a href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">
+      <%= "#{item.name}" %>
+    </h4>
+    <p class="list-group-item-text"><%= "$#{item.price}/ea. #{item.quantity} in stock." %></p>
+  </a>
 <% end %>
-</ul>
+</div>

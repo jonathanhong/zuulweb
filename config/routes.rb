@@ -3,6 +3,7 @@ Zuul::Application.routes.draw do
   post "git/deploy", to: 'git#deploy'
   get 'git/branches', to: 'git#branches'
   get 'git/checkout/:branch', to: 'git#checkout'
+  post "shop/index", to: "shop#purchase"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
