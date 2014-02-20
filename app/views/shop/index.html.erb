@@ -8,17 +8,16 @@
 <p>There are <%= @item_count %> items.</p>
 <h2>Items</h2>
 <div class="list-group">
-<% @items.each do |item| %>
-  <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">
-      <%= "#{item.name}" %>
-    </h4>
-    <p class="list-group-item-text"><%= "$#{item.price}/ea. #{item.quantity} in stock." %></p>
-		<div class="pull-right">
-			<input type="text" value="0" />
-			<a class="plus" href="#">+</a>
-			<a class="minus" href="#">-</a>
-		</div>
-	</a>
+  <% @items.each do |item| %>
+  <h4 class="list-group-item-heading">
+    <%= "#{item.name}" %>
+  </h4>
+  <p class="list-group-item-text">
+    <%= "$#{item.price}/ea." %>
+    <span class="left"><%= "#{item.quantity}" %></span> in stock.
+  </p>
+  <input type="text" value="0" />
+  <a class="add" href="#"><span class="glyphicon glyphicon-plus"></span></a>
+  <a class="minus" href="#"><span class="glyphicon glyphicon-minus"></span></a>
 <% end %>
 </div>
