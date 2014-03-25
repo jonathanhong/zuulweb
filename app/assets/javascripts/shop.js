@@ -8,7 +8,7 @@ $(function() {
 	            quantity = parseInt($quantity.text(), 10)
 		    stock = parseInt($stock.text(), 10);
 		quantity += 1;
-		$this.siblings().find('.minus').removeAttr('disabled');
+		$this.parent().find('.minus').removeAttr('disabled');
 		if (quantity >= stock) {
 			quantity = stock;
 			$this.attr('disabled','');
@@ -21,7 +21,7 @@ $(function() {
 		    $quantity = $this.parent().parent().find('.quantity'),
 	            quantity = parseInt($quantity.text(), 10);
 		quantity -= 1;
-		$this.siblings().find('.plus').removeAttr('disabled');
+		$this.parent().find('.plus').removeAttr('disabled');
 		if (quantity <= 0) {
 			quantity = 0;
 			$this.attr('disabled','');
