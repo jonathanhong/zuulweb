@@ -11,7 +11,7 @@
 		</tr>
 		<tr>
 			<td>Account Type:</td>
-			<td><%= @user.username %></td>
+			<td><%= (@user.admin ? 'Admin' : 'Consumer') %></td>
 		</tr>
 		<tr <%= ((@user.balance >= 0) ? 'class=success' : 'class=danger') %>>
 			<td>Balance:</td>
