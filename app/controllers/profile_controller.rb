@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
   def index
-	@user = User.where(username: "jhong")
+	@user = User.find_by username: 'jhong'
   end
 end
