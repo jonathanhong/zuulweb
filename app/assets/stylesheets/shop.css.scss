@@ -1,3 +1,31 @@
 // Place all the styles related to the shop controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#items {
+
+  td:first-child {
+    font-weight: 125%;
+  }	  
+  td .quantity {
+    margin-right: -3px;
+    padding: 5px 10px 7px 10px;
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb(204,204,204);
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  td .input-group-btn {
+    display: inline-block;
+  }
+}
+
+.table-striped > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.table-striped > tbody > tr > td.fit-to-content {
+  width: 1px;
+  white-space: nowrap;
+}
