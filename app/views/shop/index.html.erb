@@ -11,18 +11,18 @@
   <ul class="list-group">
     <% @items.each do |item| %>
     <li class="list-group-item">
-      <h4 class="list-group-item-heading"><%= "#{item.name}" %></h4>
-      <p class="list-group-item-text">
-        <%= "$#{item.price}/ea." %>
-        <span class="left"><%= "#{item.quantity}" %></span> in stock.
-	<div class="input-group">
-          <input type="text" class="form-control" value="0" />
-	  <div class="input-group-btn">
-            <button class="btn btn-default plus" title="Add one"><span class="glyphicon glyphicon-plus"></span></a>
-	    <button class="btn btn-default minus" title="Remove one"><span class="glyphicon glyphicon-minus"></span></a>
-          </div>
+      <h4 class="list-group-item-heading"><%= item.name %></h4>
+      <span class="pull-right">
+        <span class="price">$<span class="price-num"><%= item.price %></span> each</span>
+	<span class="stock"><%= item.quantity %> in stock</span>
+      </span>
+      <div class="input-group">
+        <input type="text" class="form-control" value="0" />
+        <div class="input-group-btn">
+          <button class="btn btn-default plus" title="Add one"><span class="glyphicon glyphicon-plus"></span></a>
+          <button class="btn btn-default minus" title="Remove one"><span class="glyphicon glyphicon-minus"></span></a>
         </div>
-      </p>
+      </div>
     </li>
   <% end %>
   </ul>
