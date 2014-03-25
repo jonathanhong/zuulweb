@@ -18,7 +18,7 @@ class GitController < ApplicationController
         `#{cmd}`
         #`git fetch --all`
         `git pull --all`
-        FileUtils.touch('/home/combscat/public_html/zuul/tmp/restart.txt')
+        FileUtils.touch("#{ENV['ZUUL']}/tmp/restart.txt")
         head :ok, :content_type => 'text/plain'
       else
         redirect_to request.host
@@ -30,7 +30,7 @@ class GitController < ApplicationController
 
   def branches
     begin
-      g = Git.open('/home/combscat/public_html/zuul')
+      g = Git.open(ENV['ZUUL'])
       @branches = g.branches
     rescue Exception
       @branches = []
@@ -40,7 +40,7 @@ class GitController < ApplicationController
 
   def checkout
     begin
-      g = Git.open('/home/combscat/public_html/zuul')
+      g = Git.open(ENV['ZUUL'])
       exists = false
       g.branches.each do |branch|
         if branch.name == params[:branch]
@@ -49,7 +49,7 @@ class GitController < ApplicationController
         end
       end 
       g.checkout params[:branch] if exists
-      FileUtils.touch('/home/combscat/public_html/zuul/tmp/restart.txt') if exists
+      FileUtils.touch("#{ENV['ZUUL']}/tmp/restart.txt") if exists
       @success = exists
       @message = exists ? "Successfuly checked out branch '#{params[:branch]}'." : "Branch '#{params[:branch]}' was not found."
     rescue Exception => e
