@@ -1,19 +1,21 @@
-<h1><% @user.username %>'s Account details</h1>
-<table class="table">
-	<tr>
-		<td>MCECS username:</td>
-		<td><% @user.username %></td>
-	</tr>
-	<tr>
-		<td>IRC handle:</td>
-		<td><% @user.irchandle %></td>
-	</tr>
-	<tr>
-		<td>Account Type:</td>
-		<td><% @user.username %></td>
-	</tr>
-	<tr <% @user.balance >= 0 ? 'class="success"' : 'class="danger"' %>>
-		<td>Balance:</td>
-		<td><% @user.balance %></td>
-	</tr>
-</table>
+<div class="container">
+	<h1><%= @user.username %>'s Account details</h1>
+	<table class="table">
+		<tr>
+			<td>MCECS username:</td>
+			<td><%= @user.username %></td>
+		</tr>
+		<tr>
+			<td>IRC handle:</td>
+			<td><%= @user.irchandle %></td>
+		</tr>
+		<tr>
+			<td>Account Type:</td>
+			<td><%= @user.username %></td>
+		</tr>
+		<tr <%= ((@user.balance >= 0) ? 'class="success"' : 'class="danger"') %>>
+			<td>Balance:</td>
+			<td><%= @user.balance %></td>
+		</tr>
+	</table>
+</div>
