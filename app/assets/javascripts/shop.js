@@ -6,7 +6,7 @@ $(function() {
 		    $quantity = $this.parent().parent().find('.quantity'),
 		    $stock = $span.parent().parent().find('.stock-num'),
 	            quantity = parseInt($quantity.text(), 10)
-		    stock = parseInt($stock.text(). 10);
+		    stock = parseInt($stock.text(), 10);
 		quantity += 1;
 		$this.siblings().find('.minus').removeAttr('disabled');
 		if (quantity > stock) {
