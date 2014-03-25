@@ -50,7 +50,7 @@ class GitController < ApplicationController
     log = Logger.new(open("#{ENV['ZUUL']}/log/deploy.log", 'a'))
     begin
       log.info("Attempting to checkout changes on branch #{params[:branch]}")
-      g = Git.open(ENV['ZUUL'])
+      g = Git.open(ENV['ZUUL'], :log => log)
       exists = false
       g.branches.each do |branch|
         if branch.name == params[:branch]
@@ -62,7 +62,7 @@ class GitController < ApplicationController
       if exists
         g.checkout params[:branch]
 	log.info('Pulling remote changes...')
-	`git pull origin #{params[:branch]}`
+	`git pull --all`
         log.info('Restarting application...')
         FileUtils.touch("#{ENV['ZUUL']}/tmp/restart.txt")
 	log.info("Successfully checked out changes on branch #{params[:branch]}")
