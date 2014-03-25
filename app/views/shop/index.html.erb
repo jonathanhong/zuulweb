@@ -2,7 +2,7 @@
 <p>There are <%= @user_count %> users.</p>
 <select name="userid">
   <% @users.each do |user| %>
-    <option value="<%= user.id %>"><%= user.username %></option>
+    <option value="<%= user.id %>"><%= user.irchandle.nil? ? user.username : user.irchandle %></option>
   <% end %>
 </select>
 <p>There are <%= @item_count %> items.</p>

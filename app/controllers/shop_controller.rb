@@ -4,7 +4,7 @@ class ShopController < ApplicationController
   skip_before_action :verify_authenticity_token, except: [:index]
   def index
     @users = User.all.order("username ASC")
-    @user_count = User.count
+    @user_count = @users.size
     @items = Item.where(active: true)
     @item_count = @items.size
   end
