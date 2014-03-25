@@ -62,7 +62,7 @@ class GitController < ApplicationController
       if exists
         g.checkout params[:branch]
 	log.info('Pulling remote changes...')
-	`git pull origin #{params[:branch]}`
+	`git pull --all`
         log.info('Restarting application...')
         FileUtils.touch("#{ENV['ZUUL']}/tmp/restart.txt")
 	log.info("Successfully checked out changes on branch #{params[:branch]}")
