@@ -2,12 +2,30 @@
 
 $(function() {
 	$(".plus").click(function() {
-		var text = $(this).next(":text");
-		text.val(parseInt(text.val(), 10) + 1);
+		var $this = $(this),
+		    $quantity = $this.parent().parent().find('.quantity'),
+		    $stock = $quantity.parent().parent().find('.stock-num'),
+	            quantity = parseInt($quantity.text(), 10)
+		    stock = parseInt($stock.text(), 10);
+		quantity += 1;
+		$this.parent().find('.minus').removeAttr('disabled');
+		if (quantity >= stock) {
+			quantity = stock;
+			$this.attr('disabled','');
+		}
+		$quantity.text(quantity);
 	});
 
 	$(".minus").click(function() {
-		var text = $(this).prev(":text");
-		text.val(parseInt(text.val(), 10) - 1);
+		var $this = $(this),
+		    $quantity = $this.parent().parent().find('.quantity'),
+	            quantity = parseInt($quantity.text(), 10);
+		quantity -= 1;
+		$this.parent().find('.plus').removeAttr('disabled');
+		if (quantity <= 0) {
+			quantity = 0;
+			$this.attr('disabled','');
+		}
+		$quantity.text(quantity);
 	});
 });
