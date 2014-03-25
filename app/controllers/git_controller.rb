@@ -40,6 +40,7 @@ class GitController < ApplicationController
     begin
       g = Git.open(ENV['ZUUL'])
       @branches = g.branches
+      @branches = @branches.select { |branch| not branch.name.to_s.include?('/') or not branch.name.to_s.include?('/')}
     rescue Exception
       @branches = []
     end
