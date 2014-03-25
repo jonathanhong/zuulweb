@@ -8,22 +8,31 @@
   </select>
   <p>There are <%= @item_count %> items.</p>
   <h2>Items</h2>
-  <ul id="items" class="list-group">
+  <table id="items" class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="2"></th>
+	<th colspan="2">Price</th>
+	<th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @items.each do |item| %>
-    <li class="list-group-item">
-      <h3 class="list-group-item-heading"><%= item.name %></h3>
-      <span class="pull-right">
-        <span class="price">$<span class="price-num"><%= item.price %></span> each</span>
-	<span class="stock"><%= item.quantity %> in stock</span>
-      </span>
-      <div class="input-group">
+    <tr class="list-group-item">
+      <td><%= item.name %></td>
+      <td class="price">
+        $<span class="price-num"><%= item.price %></span> each
+      </td>
+      <td class="stock"><%= item.quantity %> in stock</td>
+      <td class="form-group">
         <input type="text" class="form-control" value="0" />
         <div class="input-group-btn">
           <button class="btn btn-default plus" title="Add one"><span class="glyphicon glyphicon-plus"></span></a>
           <button class="btn btn-default minus" title="Remove one"><span class="glyphicon glyphicon-minus"></span></a>
         </div>
-      </div>
-    </li>
-  <% end %>
-  </ul>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
