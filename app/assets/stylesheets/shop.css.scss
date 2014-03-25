@@ -4,6 +4,15 @@
 
 #items {
   
+  td .quantity {
+    margin-right: -3px;
+    padding: 5px 10px 7px 10px;
+    background-color: rgb(255,255,255);
+    border: 1px solid rgb(204,204,204);
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
   td .input-group-btn {
     display: inline-block;
   }
