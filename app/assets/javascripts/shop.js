@@ -4,7 +4,7 @@ $(function() {
 	$(".plus").click(function() {
 		var $this = $(this),
 		    $quantity = $this.parent().parent().find('.quantity'),
-		    $stock = $span.parent().parent().find('.stock-num'),
+		    $stock = $quantity.parent().parent().find('.stock-num'),
 	            quantity = parseInt($quantity.text(), 10)
 		    stock = parseInt($stock.text(), 10);
 		quantity += 1;
