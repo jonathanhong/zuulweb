@@ -18,6 +18,10 @@
   }
 }
 
+.table-striped > tbody > tr > td {
+  vertical-align: middle;
+}
+
 .table-striped > tbody > tr > td.fit-to-content {
   width: 1px;
   white-space: nowrap;
