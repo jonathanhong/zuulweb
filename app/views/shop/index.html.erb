@@ -8,10 +8,10 @@
   </select>
   <p>There are <%= @item_count %> items.</p>
   <h2>Items</h2>
-  <ul class="list-group">
+  <ul id="items" class="list-group">
     <% @items.each do |item| %>
     <li class="list-group-item">
-      <h4 class="list-group-item-heading"><%= item.name %></h4>
+      <h3 class="list-group-item-heading"><%= item.name %></h3>
       <span class="pull-right">
         <span class="price">$<span class="price-num"><%= item.price %></span> each</span>
 	<span class="stock"><%= item.quantity %> in stock</span>

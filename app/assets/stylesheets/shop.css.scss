@@ -1,3 +1,13 @@
 // Place all the styles related to the shop controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#items {
+ 
+  h3 {
+    display: inline-block;
+  }	  
+  li .input-group {
+    clear: both;
+  }
+}
