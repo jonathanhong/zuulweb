@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #items {
-  
+
+  td:first-child {
+    font-weight: 125%;
+  }	  
   td .quantity {
     margin-right: -3px;
     padding: 5px 10px 7px 10px;
