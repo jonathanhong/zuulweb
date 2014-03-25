@@ -5,3 +5,8 @@
 #items {
    
 }
+
+#items .table-striped > tbody > tr > td.fit-to-content {
+  width: 1px;
+  white-space: nowrap;
+}
