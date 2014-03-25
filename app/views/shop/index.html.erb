@@ -15,9 +15,13 @@
       <p class="list-group-item-text">
         <%= "$#{item.price}/ea." %>
         <span class="left"><%= "#{item.quantity}" %></span> in stock.
-        <input type="text" value="0" />
-        <a class="add" href="#"><span class="glyphicon glyphicon-plus"></span></a>
-        <a class="minus" href="#"><span class="glyphicon glyphicon-minus"></span></a>
+	<div class="input-group">
+          <input type="text" class="form-control" value="0" />
+	  <div class="input-group-button">
+            <button class="btn btn-default plus" title="Add one"><span class="glyphicon glyphicon-plus"></span></a>
+	    <button class="btn btn-default minus" title="Remove one"><span class="glyphicon glyphicon-minus"></span></a>
+          </div>
+        </div>
       </p>
     </li>
   <% end %>
