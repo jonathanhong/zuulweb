@@ -1,6 +1,8 @@
 /* ZuulWeb 2.0 Shop Index shop.js JavaScript Document */
 
 $(function() {
+	updateBalance();
+	
 	$(".plus").click(function() {
 		var $this = $(this),
 		    $quantity = $this.parent().parent().find('.quantity'),
@@ -14,6 +16,7 @@ $(function() {
 			$this.attr('disabled','');
 		}
 		$quantity.text(quantity);
+		updateBalance();
 	});
 
 	$(".minus").click(function() {
@@ -27,5 +30,30 @@ $(function() {
 			$this.attr('disabled','');
 		}
 		$quantity.text(quantity);
+		updateBalance();
 	});
 });
+
+function updateBalance() {
+	var $buy = $('#buy'),
+	    $total = $('#total'),
+	    $balance = $('#balance'),
+	    total = 0.0,
+	    balance = parseFloat($('select option:selected').data('balance'));
+	$('#items tbody tr').each(function () {
+		var $this = $(this),
+		    $quantity = $this.find('.quantity'),
+		    $price = $this.find('.price-num'),
+	            quantity = parseInt($quantity.text(), 10)
+		    price = parseFloat($price.text());
+		total += quantity * price;
+	});
+	balance -= total;
+	$total.text(total);
+	$balance.text(balance);
+	if (total > 0.0) {
+		$buy.removeAttr('disabled');
+	} else {
+		$buy.attr('disabled', 'disabled');
+	}
+}
