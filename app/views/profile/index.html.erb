@@ -15,7 +15,19 @@
 		</tr>
 		<tr <%= ((@user.balance >= 0) ? 'class=success' : 'class=danger') %>>
 			<td>Balance:</td>
-			<td><%= @user.balance %></td>
+			<td><%= number_to_currency(@user.balance) %></td>
 		</tr>
 	</table>
+	<h2>Last 5 transactions</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Items</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+	</table>
+	<a href="#">View all transactions</a>
 </div>
