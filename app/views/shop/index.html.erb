@@ -3,7 +3,7 @@
   <p>There are <%= @user_count %> users.</p>
   <select name="userid">
     <% @users.each do |user| %>
-      <option value="<%= user.id %>"><%= user.irchandle.nil? ? user.username : user.irchandle %></option>
+	    <option value="<%= user.id %>" data-balance="<%= user.balance %>"><%= user.irchandle.nil? ? user.username : user.irchandle %></option>
     <% end %>
   </select>
   <p>There are <%= @item_count %> items.</p>
@@ -33,4 +33,9 @@
     <% end %>
     </tbody>
   </table>
+  <div id="order">
+    <button id="buy" class="btn btn-primary pull-right" disabled="disabled">Buy</button>
+    <span class="pull-right">Balance after purchase: $<span id="balance">0.00</span></span>
+    <span class="pull-right">Order total: $<span id="total">0.00</span></span>
+  </div>
 </div>
