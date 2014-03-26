@@ -1,4 +1,5 @@
 Zuul::Application.routes.draw do
+  get "transaction", to: "transaction#index"
   get "profile", to: "profile#index"
   get "shop", to: "shop#index"
   post "git/deploy", to: 'git#deploy'
