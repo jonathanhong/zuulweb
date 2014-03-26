@@ -19,7 +19,7 @@
 		</tr>
 	</table>
 	<h2>Last 5 transactions</h2>
-	<table>
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>Date</th>
@@ -28,6 +28,19 @@
 				<th>Total</th>
 			</tr>
 		</thead>
+		<tbody>
+			<% @transactions.each do |transaction| %>
+			<tr>
+				<td><%= transaction.created_at %></td>
+				<td><%= transaction.created_at %></td>
+				<td>
+					<%= transaction.created_at %><span class="glyphicon glyphicon-remove"></span>
+					<%= @transactions.itemid %>
+				</td>
+				<td><%= transaction.price * transaction.quantity %></td>
+			</tr>
+			<% end %>
+		</tbody>
 	</table>
 	<a href="#">View all transactions</a>
 </div>
