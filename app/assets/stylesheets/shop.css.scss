@@ -29,3 +29,18 @@
   width: 1px;
   white-space: nowrap;
 }
+
+#order {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  & > * {
+    margin: 0 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
