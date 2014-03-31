@@ -34,15 +34,17 @@
 				#get the transaction items
 				transaction_items = TransactionItem.where("transactionid = ?", transaction.id).order('itemid')
 				sum = 0.0
+				num_items = 0
 				transaction_items.each do |item|
 					sum += item.price * item.quantity
+					num_items += item.quantity
 				end
 			%>
 			<tr>
 				<td><%= transaction.created_at %></td>
 				<td><%= transaction.created_at %></td>
 				<td>
-					<%= transaction_items.count %> Items bought
+					<%= num_items %> Items bought
 				</td>
 				<td>
 				<%= number_to_currency(sum) %></td>
