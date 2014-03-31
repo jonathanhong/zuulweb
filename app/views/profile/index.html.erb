@@ -29,15 +29,23 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @transactions.each do |transaction| %>
+			<% 
+			@transactions.each do |transaction|
+				#get the transaction items
+				transaction_items = Transaction_item.where("transactionid = ?", transaction.id).order('itemid')
+				sum = 0.0
+				transaction_items.each do |item|
+					sum += item.price * item.quantity
+				end
+			%>
 			<tr>
 				<td><%= transaction.created_at %></td>
 				<td><%= transaction.created_at %></td>
 				<td>
-					<%= transaction.created_at %><span class="glyphicon glyphicon-remove"></span>
-					<%= @transactions.itemid %>
+					<%= transaction_items.count %> Items bought
 				</td>
-				<td><%= transaction.price * transaction.quantity %></td>
+				<td>
+				<% number_to_currency(sum) %></td>
 			</tr>
 			<% end %>
 		</tbody>
