@@ -32,7 +32,7 @@
 			<% 
 			@transactions.each do |transaction|
 				#get the transaction items
-				transaction_items = Transaction_item.where("transactionid = ?", transaction.id).order('itemid')
+				transaction_items = TransactionItem.where("transactionid = ?", transaction.id).order('itemid')
 				sum = 0.0
 				transaction_items.each do |item|
 					sum += item.price * item.quantity
