@@ -60,7 +60,7 @@
 				transaction_items.each do |item|
 					item_info = Item.find(item.itemid)
 			%>
-			<tr class="dropdown-row">
+			<tr class="hidden-row">
 				<td></td>
 				<td></td>
 				<td><%=  item_info.name %></td>

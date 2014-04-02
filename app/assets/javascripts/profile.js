@@ -10,6 +10,5 @@ window.onload = function() {
 	var expandBtns = document.getElementsByClass("expand");
 	for (var i = 0; i < expandButtons.length; i++) {
 		expandBtns[i].onclick = expand();
-		}
 	}
 }
