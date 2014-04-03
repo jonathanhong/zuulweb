@@ -8,7 +8,7 @@ function expand() {
 
 //sets up the event handlers
 window.onload = function() {
-	var expandBtns = document.getElementsByClass("expand");
+	var expandBtns = document.getElementsByClassName("expand");
 	for (var i = 0; i < expandButtons.length; i++) {
 		expandBtns[i].onclick = expand();
 	}
