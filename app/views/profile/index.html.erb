@@ -23,8 +23,7 @@
 		<thead>
 			<tr>
 				<th></th>
-				<th>Date</th>
-				<th>Time</th>
+				<th>Date/Time</th>
 				<th>Items</th>
 				<th>Total</th>
 			</tr>
@@ -48,8 +47,7 @@
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>
 				</td>
-				<td><%= transaction.created_at %></td>
-				<td><%= transaction.created_at %></td>
+				<td><%= transaction.created_at.strftime("%a %b-%e-%y l:%M%P") %></td>
 				<td>
 					<%= num_items %> Items bought
 				</td>
@@ -61,7 +59,6 @@
 					item_info = Item.find(item.itemid)
 			%>
 			<tr class="hidden-row item">
-				<td></td>
 				<td></td>
 				<td><%=  item_info.name %></td>
 				<td><%= item.quantity %> @ <%= number_to_currency(item_info.price) %></td>
