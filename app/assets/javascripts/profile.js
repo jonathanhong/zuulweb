@@ -9,7 +9,7 @@ function expand() {
 		if (this === that) {
 			isItem = true;
 			return false;
-		} else if (!($(this).hasClass("item")) {
+		} else if (!($(this).hasClass("item"))) {
 			isItem = false;
 			return false;
 		}
