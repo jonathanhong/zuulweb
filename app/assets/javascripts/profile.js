@@ -16,7 +16,11 @@ function expand() {
 	return isItem;
 	}).toggleClass("hidden-row");	
 	$this.find("span").toggleClass("glyphicon-plus").toggleClass("glyphicon-minus");
-	//TODO: expand functionality here
+	if ($this.hasClass("glyphicon-plus")) {
+		$this.attr("title", "Expand");
+	} else {
+		$this.attr("title", "Shrink");
+	}
 };
 
 //sets up the event handlers
