@@ -2,14 +2,14 @@
 
 //expands the table row of class .hidden-row below
 function expand() {
+	console.log(this.classList);
 	this.innerHTML = '<span class="glyphicon glyphicon-minus"></span>';
 	//TODO: expand functionality here
 };
 
 //sets up the event handlers
-window.onload = function() {
-	var expandBtns = document.getElementsByClassName("expand");
-	for (var i = 0; i < expandBtns.length; i++) {
-		expandBtns[i].onclick = expand();
-	}
-};
+$(function() {
+	var expandBtns = $(".expand").each(function() {
+		this.click(expand);
+	});
+});
