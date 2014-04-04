@@ -19,7 +19,7 @@
 		</tr>
 	</table>
 	<h2>Last 5 transactions</h2>
-	<table class="table table-striped">
+	<table class="table table-striped" id="transactions">
 		<thead>
 			<tr>
 				<th></th>
@@ -60,7 +60,7 @@
 				transaction_items.each do |item|
 					item_info = Item.find(item.itemid)
 			%>
-			<tr class="hidden-row">
+			<tr class="hidden-row item">
 				<td></td>
 				<td></td>
 				<td><%=  item_info.name %></td>
