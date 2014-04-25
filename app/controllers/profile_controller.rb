@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController
   def index
-	@user = User.find_by username: 'jhong'
-	@transactions = Transaction.where("userid = ?", @user.id).limit(5).order('created_at desc')
+		#TODO: add user auth
+		@user = User.find_by username: 'jhong'
+		@transactions = @user.transactions.limit(5)
   end
 end
