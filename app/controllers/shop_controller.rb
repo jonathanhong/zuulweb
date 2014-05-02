@@ -10,27 +10,35 @@ class ShopController < ApplicationController
   end
   
   def purchase
-	  #retrieve POST data [{"itemids" : {array, of, itemids}, userid}] multiple id's for multiple purchases of same item
-	  postdata = JSON.parse(params[:payload])
-    itemids = postdata['itemid']
-    User.transaction do
-      Transactions.transaction do
-        Item.transaction do
-          total = 0.0
-          itemids.each do |itemid|
-            #UPDATE quantity in item table
-            currItem = Item.find(itemid)
-            currItem.update(quantity: currItem.quantity - 1)
-	          #SELECT item prices from item table
-            total += currItem.price
-  	        #ADD log in transactions table
+    #retrieve POST data [{"itemids" : [array, of, itemids], userid}] multiple id's for multiple purchases of same item
+    begin
+      data = JSON.parse(request.body.read)
+      item_ids = data['itemid']
+      user_id = data['userid']
+      User.transaction do
+        Transactions.transaction do
+          Item.transaction do
+            total = 0.0
+	    transaction = Transaction.create(userid: user_id)
+            item_ids.each do |itemid|
+              #UPDATE quantity in item table
+              currItem = Item.find(itemid)
+              currItem.update(quantity: currItem.quantity - 1)
+              #SELECT item prices from item table
+              total += currItem.price
+              #ADD log in transactions table
+	      
+            end
+              #UPDATE balance in user table
+              currUser = User.find(user_id)
+	      currUser.update(balance: currUser.balance - total)
           end
-
-	          #UPDATE balance in user table
         end
       end
+      #return success or fail code
+      render json: itemids
+    rescue Exception
+      render json: {}
     end
-	  render json: itemids 
-	  #return success or fail code
   end
 end
