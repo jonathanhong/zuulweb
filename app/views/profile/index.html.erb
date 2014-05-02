@@ -32,11 +32,10 @@
 			<% 
 			@transactions.each do |transaction|
 				#get the transaction items
-				transaction_items = TransactionItem.where("transaction_id = ?", transaction.id).order('item_id')
 				sum = 0.0
 				num_items = 0
 				#calculate the sum and number of items
-				transaction_items.each do |item|
+				transaction.items.each do |item|
 					sum += item.price
 					num_items += item.quantity
 				end
@@ -55,7 +54,7 @@
 				<%= number_to_currency(sum) %></td>
 			</tr>
 			<%
-				transaction_items.each do |item|
+				transaction.items.each do |item|
 					item_info = Item.find(item.item_id)
 			%>
 			<tr class="hidden-row item">
